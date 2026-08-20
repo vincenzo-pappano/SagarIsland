@@ -4,5 +4,6 @@ import "app"
 
 AppRoot {
     rootGitCommitId: gitCommitId
+    rootProjectVersion: projectVersion
     rootFontSize: 40
 }

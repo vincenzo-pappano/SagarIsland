@@ -6,6 +6,7 @@ FixedAspectRatioWindow {
     id: appRoot
 
     property string rootGitCommitId: ""
+    property string rootProjectVersion: ""
     property int rootFontSize: 10
 
     width: 1280
@@ -14,19 +15,35 @@ FixedAspectRatioWindow {
     title: qsTr("Sagar Island")
     color: "royalblue"
 
-    Label {
-        text: "Navigation Channels (git commit ID: " + rootGitCommitId + ")"
 
+    Column {
         anchors.centerIn: parent
+        spacing: 20
 
-        // Optional: Center the text formatting inside the label boundaries
-        horizontalAlignment: Text.AlignHCenter
-        verticalAlignment: Text.AlignVCenter
+        Label {
+            text: "Navigation Channels"
 
-        color: "white"
-        font.pixelSize: rootFontSize
-        font.bold: true
-        font.italic: true
-        font.family: "Book Antiqua"
+            anchors.horizontalCenter: parent.horizontalCenter
+            horizontalAlignment: Text.AlignHCenter
+
+            color: "white"
+            font.pixelSize: rootFontSize
+            font.bold: true
+            font.italic: true
+            font.family: "Book Antiqua"
+        }
+
+        Label {
+            text: "Version: " + rootProjectVersion + " (" + rootGitCommitId + ")"
+
+            anchors.horizontalCenter: parent.horizontalCenter
+            horizontalAlignment: Text.AlignHCenter
+
+            color: "white"
+            font.pixelSize: rootFontSize
+            font.bold: true
+            font.italic: true
+            font.family: "Book Antiqua"
+        }
     }
 }
