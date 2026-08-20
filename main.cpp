@@ -101,6 +101,8 @@ int main(int argc, char *argv[])
         0,
         "FixedAspectRatioWindow");
 
+    qDebug(appLog) << "Current Git Commit ID:" << GIT_COMMIT_ID;
+
     QQmlApplicationEngine engine;
     const QUrl url(QStringLiteral("qrc:/main.qml"));
 
@@ -113,6 +115,8 @@ int main(int argc, char *argv[])
                 QCoreApplication::exit(-1);
         },
         Qt::QueuedConnection);
+
+    engine.rootContext()->setContextProperty("gitCommitId", QString(GIT_COMMIT_ID));
 
     engine.load(url);
 
@@ -170,9 +174,14 @@ static void logStartupRecord()
         << QCoreApplication::applicationVersion();
 
     qCInfo(appLog).noquote()
+       << "Git commit:"
+       << QStringLiteral(GIT_COMMIT_ID);
+
+    qCInfo(appLog).noquote()
         << "Executable:"
         << QDir::toNativeSeparators(
                QCoreApplication::applicationFilePath());
+
 
     qCInfo(appLog).noquote()
         << "Log file:"
