@@ -14,6 +14,7 @@ find_package(Qt5 5.15 REQUIRED COMPONENTS
     Quick
     Qml
     QuickControls2
+    Widgets
 )
 
 set(PROJECT_SOURCES
@@ -23,7 +24,10 @@ set(PROJECT_SOURCES
     src/FixedAspectRatioWindow.cpp
 )
 
-add_executable(SagarIsland ${PROJECT_SOURCES})
+add_executable(SagarIsland ${PROJECT_SOURCES}
+    src/LoggerConfig.h
+    src/Logger.h
+    src/Logger.cpp)
 
 target_link_libraries(SagarIsland
   PRIVATE
@@ -31,6 +35,7 @@ target_link_libraries(SagarIsland
   Qt5::Quick
   Qt5::Qml
   Qt5::QuickControls2
+  Qt5::Widgets
 )
 
 set_target_properties(SagarIsland PROPERTIES
