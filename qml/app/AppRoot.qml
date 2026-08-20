@@ -3,6 +3,11 @@ import QtQuick.Window 2.15
 import QtQuick.Controls 2.15
 
 FixedAspectRatioWindow {
+    id: appRoot
+
+    property string rootGitCommitId: ""
+    property int rootFontSize: 10
+
     width: 1280
     height: 720
     visible: true
@@ -10,7 +15,7 @@ FixedAspectRatioWindow {
     color: "royalblue"
 
     Label {
-        text: "Navigation Channels (git commit ID: " + gitCommitId + ")"
+        text: "Navigation Channels (git commit ID: " + rootGitCommitId + ")"
 
         anchors.centerIn: parent
 
@@ -19,7 +24,7 @@ FixedAspectRatioWindow {
         verticalAlignment: Text.AlignVCenter
 
         color: "white"
-        font.pixelSize: 60
+        font.pixelSize: rootFontSize
         font.bold: true
         font.italic: true
         font.family: "Book Antiqua"

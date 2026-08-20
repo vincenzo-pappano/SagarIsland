@@ -104,7 +104,7 @@ int main(int argc, char *argv[])
     qDebug(appLog) << "Current Git Commit ID:" << GIT_COMMIT_ID;
 
     QQmlApplicationEngine engine;
-    const QUrl url(QStringLiteral("qrc:/main.qml"));
+    const QUrl url(QStringLiteral("qrc:/qml/main.qml"));
 
     QObject::connect(
         &engine,
