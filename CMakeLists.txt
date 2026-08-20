@@ -38,6 +38,24 @@ target_link_libraries(SagarIsland
   Qt5::Widgets
 )
 
+execute_process(
+    COMMAND git rev-parse --short HEAD
+    WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}"
+    OUTPUT_VARIABLE GIT_COMMIT_HASH
+    OUTPUT_STRIP_TRAILING_WHITESPACE
+    ERROR_QUIET
+)
+
+if(NOT GIT_COMMIT_HASH)
+    set(GIT_COMMIT_HASH "unknown")
+endif()
+
+target_compile_definitions(SagarIsland
+    PRIVATE
+        GIT_COMMIT_ID="${GIT_COMMIT_HASH}"
+        PROJECT_VERSION_STRING="${PROJECT_VERSION}"
+)
+
 set_target_properties(SagarIsland PROPERTIES
     WIN32_EXECUTABLE TRUE
 )

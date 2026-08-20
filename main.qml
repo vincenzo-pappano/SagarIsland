@@ -10,7 +10,7 @@ FixedAspectRatioWindow {
     color: "royalblue"
 
     Label {
-        text: "Navigation Channels"
+        text: "Navigation Channels (git commit ID: " + gitCommitId + ")"
 
         anchors.centerIn: parent
 
