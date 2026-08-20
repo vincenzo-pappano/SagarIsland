@@ -2,9 +2,9 @@ import QtQuick 2.15
 import QtQuick.Window 2.15
 import QtQuick.Controls 2.15
 
-Window {
-    width: 640
-    height: 480
+FixedAspectRatioWindow {
+    width: 1280
+    height: 720
     visible: true
     title: qsTr("Sagar Island")
     color: "royalblue"
@@ -19,7 +19,7 @@ Window {
         verticalAlignment: Text.AlignVCenter
 
         color: "white"
-        font.pixelSize: 24
+        font.pixelSize: 60
         font.bold: true
         font.italic: true
         font.family: "Book Antiqua"
