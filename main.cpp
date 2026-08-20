@@ -102,6 +102,7 @@ int main(int argc, char *argv[])
         "FixedAspectRatioWindow");
 
     qDebug(appLog) << "Current Git Commit ID:" << GIT_COMMIT_ID;
+    qDebug(appLog) << "Project version:" << PROJECT_VERSION_STRING;
 
     QQmlApplicationEngine engine;
     const QUrl url(QStringLiteral("qrc:/qml/main.qml"));
@@ -117,6 +118,7 @@ int main(int argc, char *argv[])
         Qt::QueuedConnection);
 
     engine.rootContext()->setContextProperty("gitCommitId", QString(GIT_COMMIT_ID));
+    engine.rootContext()->setContextProperty("projectVersion", QString(PROJECT_VERSION_STRING));
 
     engine.load(url);
 
@@ -171,7 +173,7 @@ static void logStartupRecord()
 
     qCInfo(appLog).noquote()
         << "Version:"
-        << QCoreApplication::applicationVersion();
+        << PROJECT_VERSION_STRING;
 
     qCInfo(appLog).noquote()
        << "Git commit:"
