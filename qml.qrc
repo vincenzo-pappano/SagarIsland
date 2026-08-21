@@ -3,5 +3,7 @@
         <file>qml/main.qml</file>
         <file>qml/app/FixedAspectRatioWindow.qml</file>
         <file>qml/app/AppRoot.qml</file>
+        <file>qml/panels/DashboardPanel.qml</file>
+        <file>qml/panels/MapPanel.qml</file>
     </qresource>
 </RCC>

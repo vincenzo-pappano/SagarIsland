@@ -1,6 +1,6 @@
 import QtQuick 2.15
 import QtQuick.Window 2.15
-import QtQuick.Controls 2.15
+import "../panels"
 
 FixedAspectRatioWindow {
     id: appRoot
@@ -16,34 +16,21 @@ FixedAspectRatioWindow {
     color: "royalblue"
 
 
-    Column {
-        anchors.centerIn: parent
-        spacing: 20
+    Row {
+        anchors.fill: parent
 
-        Label {
-            text: "Navigation Channels"
-
-            anchors.horizontalCenter: parent.horizontalCenter
-            horizontalAlignment: Text.AlignHCenter
-
-            color: "white"
-            font.pixelSize: rootFontSize
-            font.bold: true
-            font.italic: true
-            font.family: "Book Antiqua"
+        MapPanel {
+            width: parent.width * 4 / 5
+            height: parent.height
+            labelFontSize: appRoot.rootFontSize
         }
 
-        Label {
-            text: "Version: " + rootProjectVersion + " (" + rootGitCommitId + ")"
-
-            anchors.horizontalCenter: parent.horizontalCenter
-            horizontalAlignment: Text.AlignHCenter
-
-            color: "white"
-            font.pixelSize: rootFontSize
-            font.bold: true
-            font.italic: true
-            font.family: "Book Antiqua"
+        DashboardPanel {
+            width: parent.width / 5
+            height: parent.height
+            gitCommitId: appRoot.rootGitCommitId
+            projectVersion: appRoot.rootProjectVersion
+            labelFontSize: appRoot.rootFontSize
         }
     }
 }
