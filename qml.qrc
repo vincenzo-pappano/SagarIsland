@@ -5,5 +5,6 @@
         <file>qml/app/AppRoot.qml</file>
         <file>qml/panels/DashboardPanel.qml</file>
         <file>qml/panels/MapPanel.qml</file>
+        <file>qml/panels/MapRefreshContainer.qml</file>
     </qresource>
 </RCC>
