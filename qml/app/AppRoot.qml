@@ -22,7 +22,6 @@ FixedAspectRatioWindow {
         MapPanel {
             width: parent.width * 4 / 5
             height: parent.height
-            labelFontSize: appRoot.rootFontSize
         }
 
         DashboardPanel {

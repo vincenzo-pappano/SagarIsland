@@ -14,6 +14,8 @@ find_package(Qt5 5.15 REQUIRED COMPONENTS
     Quick
     Qml
     QuickControls2
+    Location
+    Positioning
     Widgets
 )
 
@@ -35,6 +37,8 @@ target_link_libraries(SagarIsland
   Qt5::Quick
   Qt5::Qml
   Qt5::QuickControls2
+  Qt5::Location
+  Qt5::Positioning
   Qt5::Widgets
 )
 
