@@ -3,7 +3,7 @@
 
 // Output destinations
 #define LOG_WRITE_TO_FILE              1
-#define LOG_WRITE_TO_CONSOLE           0
+#define LOG_WRITE_TO_CONSOLE           1
 
 // Entry fields
 #define LOG_INCLUDE_TIMESTAMP          1
