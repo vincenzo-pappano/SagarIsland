@@ -6,5 +6,6 @@
         <file>qml/panels/DashboardPanel.qml</file>
         <file>qml/panels/MapPanel.qml</file>
         <file>qml/panels/MapRefreshContainer.qml</file>
+        <file>qml/panels/MapZoomControls.qml</file>
     </qresource>
 </RCC>
