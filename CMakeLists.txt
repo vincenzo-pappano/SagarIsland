@@ -60,10 +60,6 @@ target_compile_definitions(SagarIsland
         PROJECT_VERSION_STRING="${PROJECT_VERSION}"
 )
 
-set_target_properties(SagarIsland PROPERTIES
-    WIN32_EXECUTABLE TRUE
-)
-
 include(GNUInstallDirs)
 install(TARGETS SagarIsland
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR})

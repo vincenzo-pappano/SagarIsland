@@ -10,6 +10,22 @@ MapRefreshContainer {
     //property var originalCenter: QtPositioning.coordinate(21.879612, 88.060324)
     property var originalCenter: QtPositioning.coordinate(21.917838, 88.090536)
     property int originalZoomLevel: 11
+    property bool coordinatePickingEnabled: false
+    property var pickedPath: []
+
+    ListModel {
+        id: pickedCoordinates
+    }
+
+    Shortcut {
+        sequence: "Ctrl+p"
+        context: Qt.WindowShortcut
+        onActivated: {
+            root.coordinatePickingEnabled = !root.coordinatePickingEnabled
+            console.log("Map coordinate picking "
+                        + (root.coordinatePickingEnabled ? "enabled" : "disabled"))
+        }
+    }
 
     Plugin {
         id: mapPlugin
@@ -34,6 +50,47 @@ MapRefreshContainer {
                 }
             }
         } // Component
+
+        MapPolyline {
+            visible: root.pickedPath.length >= 2
+            path: root.pickedPath
+            line.width: 2
+            line.color: "grey"
+        }
+
+        MapItemView {
+            model: pickedCoordinates
+
+            delegate: MapQuickItem {
+                coordinate: QtPositioning.coordinate(latitude, longitude)
+                anchorPoint.x: 2
+                anchorPoint.y: 2
+
+                sourceItem: Rectangle {
+                    width: 4
+                    height: 4
+                    radius: 2
+                    color: "red"
+                }
+            }
+        }
+
+        MouseArea {
+            anchors.fill: parent
+            enabled: root.coordinatePickingEnabled
+            acceptedButtons: Qt.RightButton
+
+            onClicked: {
+                var coordinate = mainMap.toCoordinate(Qt.point(mouse.x, mouse.y), false)
+                pickedCoordinates.append({
+                    "latitude": coordinate.latitude,
+                    "longitude": coordinate.longitude
+                })
+                root.pickedPath = root.pickedPath.concat([coordinate])
+                console.log("Map coordinates: latitude=" + coordinate.latitude.toFixed(6)
+                            + ", longitude=" + coordinate.longitude.toFixed(6))
+            }
+        }
     } // Map
 
     MapZoomControls {
